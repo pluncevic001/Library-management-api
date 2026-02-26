@@ -1,0 +1,196 @@
+{
+    "AUTH": {
+        "register_admin": {
+            "name": "Admin User",
+            "email": "admin@library.com",
+            "password": "password123",
+            "role": "admin"
+        },
+        "register_librarian": {
+            "name": "John Librarian",
+            "email": "librarian@library.com",
+            "password": "password123",
+            "role": "librarian"
+        },
+        "register_member": {
+            "name": "Jane Member",
+            "email": "jane@test.com",
+            "password": "password123",
+            "role": "member"
+        },
+        "login": {
+            "email": "admin@library.com",
+            "password": "password123"
+        }
+    },
+    "CATEGORIES": {
+        "create": {
+            "name": "Horror",
+            "description": "Horror and thriller novels"
+        },
+        "update": {
+            "name": "Horror & Suspense",
+            "description": "Updated description for horror category"
+        }
+    },
+    "AUTHORS": {
+        "create": {
+            "firstName": "J.K.",
+            "lastName": "Rowling",
+            "bio": "British author, best known for Harry Potter series",
+            "country": "United Kingdom"
+        },
+        "update": {
+            "firstName": "J.K.",
+            "lastName": "Rowling",
+            "bio": "Updated biography with more details",
+            "country": "United Kingdom"
+        }
+    },
+    "BOOKS": {
+        "create": {
+            "title": "Harry Potter and the Philosopher's Stone",
+            "isbn": "978-0439708180",
+            "description": "First book in the Harry Potter series",
+            "totalCopies": 10,
+            "categoryId": 2,
+            "authorIds": [
+                1
+            ],
+            "publishedYear": 1997,
+            "language": "English"
+        },
+        "update": {
+            "title": "Updated Book Title",
+            "description": "Updated description",
+            "totalCopies": 15
+        }
+    },
+    "BORROWINGS": {
+        "borrow_book": {
+            "bookId": 2
+        }
+    },
+    "RESERVATIONS": {
+        "create": {
+            "bookId": 3
+        }
+    },
+    "REVIEWS": {
+        "create": {
+            "rating": 5,
+            "comment": "Excellent book! One of the best I've ever read. Highly recommend to everyone interested in this genre."
+        },
+        "update": {
+            "rating": 4,
+            "comment": "Updated review - still great but found some minor issues on re-reading."
+        }
+    },
+    "TEST_SCENARIOS": {
+        "scenario_1_complete_user_flow": {
+            "step_1_register": {
+                "name": "Test User",
+                "email": "testuser@example.com",
+                "password": "test123",
+                "role": "member"
+            },
+            "step_2_login": {
+                "email": "testuser@example.com",
+                "password": "test123"
+            },
+            "step_3_borrow_book": {
+                "bookId": 2
+            },
+            "step_4_create_review": {
+                "rating": 5,
+                "comment": "Amazing book!"
+            },
+            "step_5_reserve_book": {
+                "bookId": 5
+            }
+        },
+        "scenario_2_admin_management": {
+            "step_1_login_admin": {
+                "email": "admin@library.com",
+                "password": "password123"
+            },
+            "step_2_create_category": {
+                "name": "Romance",
+                "description": "Romance novels"
+            },
+            "step_3_create_author": {
+                "firstName": "Nicholas",
+                "lastName": "Sparks",
+                "bio": "American romance novelist",
+                "country": "United States"
+            },
+            "step_4_create_book": {
+                "title": "The Notebook",
+                "isbn": "978-0446605236",
+                "description": "A romantic novel",
+                "totalCopies": 5,
+                "categoryId": 1,
+                "authorIds": [
+                    1
+                ],
+                "publishedYear": 1996,
+                "language": "English"
+            }
+        }
+    },
+    "QUERY_PARAMETERS": {
+        "books_filters": {
+            "filter_by_category": "?category=3",
+            "filter_available": "?available=true",
+            "search": "?search=tolkien",
+            "pagination": "?page=1&limit=5",
+            "sort": "?sortBy=title&order=ASC",
+            "combined": "?category=3&available=true&page=1&limit=10&sortBy=publishedYear&order=DESC"
+        },
+        "borrowings_filters": {
+            "active": "?status=active",
+            "returned": "?status=returned",
+            "overdue": "?status=overdue",
+            "pagination": "?page=1&limit=10"
+        },
+        "reservations_filters": {
+            "pending": "?status=pending",
+            "fulfilled": "?status=fulfilled",
+            "cancelled": "?status=cancelled"
+        },
+        "reviews_pagination": {
+            "page_1": "?page=1&limit=5",
+            "page_2": "?page=2&limit=5"
+        }
+    },
+    "ERROR_TEST_CASES": {
+        "invalid_login": {
+            "email": "wrong@email.com",
+            "password": "wrongpassword"
+        },
+        "duplicate_email": {
+            "name": "Duplicate User",
+            "email": "admin@library.com",
+            "password": "password123"
+        },
+        "invalid_book_isbn": {
+            "title": "Test Book",
+            "isbn": "978-0544003415",
+            "description": "Duplicate ISBN",
+            "totalCopies": 5,
+            "categoryId": 1
+        },
+        "borrow_unavailable_book": {
+            "bookId": 999
+        },
+        "invalid_review_rating": {
+            "rating": 10,
+            "comment": "Rating should be 1-5"
+        }
+    },
+    "SWAGGER_AUTHORIZE_TOKEN": {
+        "format": "Bearer <your-token-here>",
+        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg5...",
+        "note": "Click 'Authorize' button in Swagger, paste token WITH 'Bearer ' prefix"
+    }
+}
